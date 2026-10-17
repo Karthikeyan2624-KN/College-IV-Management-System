@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusVoyage India | College IV Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo"><span
+                    class="logo-icon">✈</span><span><b>CampusVoyage</b><small>INDIA</small></span></a>
+            <button class="menu-btn" id="menuBtn">☰</button>
+            <nav id="mainNav">
+                <a href="#home">Home</a>
+                <a href="#find">Destinations</a>
+                <a href="#planner">Planner</a>
+                <a href="#students">Students</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#safety">Safety</a>
+                <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+                <button class="login-btn" id="loginBtn">Login</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="badge">🇮🇳 COLLEGE INDUSTRIAL VISIT PLATFORM</span>
+                <h1>Plan Your College <span>Industrial Visit</span> Easily</h1>
+                <p>Search Indian destinations, save your trip details, manage students, calculate budgets, track
+                    attendance and keep your IV organized.</p>
+                <div class="hero-buttons">
+                    <a href="#find" class="primary-btn">Explore Destinations →</a>
+                    <a href="#planner" class="secondary-btn">Create IV Plan</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="map-circle">🇮🇳</div>
+                <h3>CampusVoyage India</h3>
+                <p>One responsive system for students, faculty and administrators.</p>
+                <div class="mini-features"><span>✓ Student Records</span><span>✓ Trip Planning</span><span>✓ Secure
+                        Local Save</span></div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stat-card"><strong id="destinationStat">15+</strong><span>Destinations</span></div>
+            <div class="stat-card"><strong>10+</strong><span>Trip Features</span></div>
+            <div class="stat-card"><strong id="studentStat">0</strong><span>Saved Students</span></div>
+            <div class="stat-card"><strong id="loginStat">Guest</strong><span>Current Role</span></div>
+        </section>
+
+        <section class="section" id="find">
+            <div class="section-heading"><span class="section-label">DISCOVER</span>
+                <h2>Find Your IV Destination</h2>
+                <p>Explore Indian destinations suitable for college industrial and educational visits.</p>
+            </div>
+            <div class="search-box">
+                <div class="input-group"><label for="searchPlace">Search Place</label><input id="searchPlace"
+                        placeholder="Kerala, Chennai, Bengaluru..."></div>
+                <div class="input-group"><label for="travelDate">Travel Date</label><input id="travelDate" type="date">
+                </div>
+                <div class="input-group"><label for="tripType">Trip Type</label><select id="tripType">
+                        <option value="all">All Types</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="educational">Educational</option>
+                        <option value="technical">Technical</option>
+                        <option value="cultural">Cultural</option>
+                    </select></div>
+                <button class="primary-btn search-btn" id="searchBtn">Search</button>
+            </div>
+            <div id="destinationGrid" class="destination-grid"></div>
+        </section>
+
+        <section class="section planner-section" id="planner">
+            <div class="section-heading"><span class="section-label">PLAN</span>
+                <h2>College IV Planner</h2>
+                <p>All trip information is saved in your browser and restored when you reopen the project.</p>
+            </div>
+            <div class="planner-layout">
+                <div class="form-card">
+                    <h3>Trip Information</h3>
+                    <div class="form-grid">
+                        <div class="input-group"><label>Trip / Batch Name</label><input id="tripName"
+                                placeholder="CSE IV 2026"></div>
+                        <div class="input-group"><label>Destination</label><input id="destination"
+                                placeholder="Select a destination"></div>
+                        <div class="input-group"><label>Number of Students</label><input id="students" type="number"
+                                min="1" value="30"></div>
+                        <div class="input-group"><label>Department</label><select id="department">
+                                <option>Artificial Intelligence and Data Science</option>
+                                <option>Computer Science</option>
+                                <option>Information Technology</option>
+                                <option>Electronics</option>
+                                <option>Mechanical</option>
+                                <option>Civil</option>
+                                <option>Electrical</option>
+                                <option>Management</option>
+                                <option>Other</option>
+                            </select></div>
+                        <div class="input-group"><label>Coordinator</label><input id="coordinator"
+                                placeholder="Faculty coordinator name"></div>
+                        <div class="input-group"><label>Start Date</label><input id="startDate" type="date"></div>
+                        <div class="input-group"><label>End Date</label><input id="endDate" type="date"></div>
+                        <div class="input-group"><label>Transport</label><select id="transport">
+                                <option>College Bus</option>
+                                <option>Train</option>
+                                <option>Flight</option>
+                                <option>Private Bus</option>
+                            </select></div>
+                        <div class="input-group"><label>Vehicle / Train No.</label><input id="vehicleNo"
+                                placeholder="TN-00-XX-0000"></div>
+                        <div class="input-group"><label>Hotel / Accommodation</label><input id="hotel"
+                                placeholder="Hotel or hostel name"></div>
+                        <div class="input-group"><label>Rooms</label><input id="rooms" type="number" min="0" value="10">
+                        </div>
+                        <div class="input-group"><label>Emergency Contact</label><input id="tripEmergency"
+                                placeholder="+91 98765 43210"></div>
+                    </div>
+
+                    <h3 class="sub-heading">Budget Per Student (₹)</h3>
+                    <div class="budget-grid">
+                        <div class="input-group"><label>Travel</label><input id="travelCost" type="number" min="0"
+                                value="1500"></div>
+                        <div class="input-group"><label>Stay</label><input id="stayCost" type="number" min="0"
+                                value="1200"></div>
+                        <div class="input-group"><label>Food</label><input id="foodCost" type="number" min="0"
+                                value="800"></div>
+                        <div class="input-group"><label>Other</label><input id="otherCost" type="number" min="0"
+                                value="500"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="primary-btn" id="generateBtn">Generate & Save Trip</button>
+                        <button class="outline-btn" id="saveBtn">Save Details</button>
+                        <button class="outline-btn" id="exportBtn">Export JSON</button>
+                        <button class="danger-btn" id="resetBtn">Reset Project</button>
+                    </div>
+                    <p class="save-note">💾 Trip, student records, attendance and checklist are stored with browser
+                        localStorage.</p>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <div><span class="section-label">TRIP PREVIEW</span>
+                            <h3 id="previewTitle">Your IV Plan</h3>
+                        </div><span class="status pending" id="approvalStatus">Pending</span>
+                    </div>
+                    <div class="preview-main">
+                        <div class="preview-destination"><span>📍</span>
+                            <div><strong id="previewDestination">Select a destination</strong><small
+                                    id="previewDates">Select your travel dates</small></div>
+                        </div>
+                        <div class="preview-stats">
+                            <div><strong id="previewStudents">0</strong><span>Students</span></div>
+                            <div><strong id="previewDays">0</strong><span>Days</span></div>
+                            <div><strong id="previewPerStudent">₹0</strong><span>Per Student</span></div>
+                            <div><strong id="previewTotal">₹0</strong><span>Group Total</span></div>
+                        </div>
+                        <div class="itinerary">
+                            <h4>Suggested Itinerary</h4>
+                            <div id="itineraryList">
+                                <p class="empty-state">Generate your trip to see the itinerary.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="students">
+            <div class="section-heading"><span class="section-label">STUDENT MANAGEMENT</span>
+                <h2>Student Details</h2>
+                <p>Add, edit, search, delete and permanently save student information for this browser.</p>
+            </div>
+            <div class="student-card">
+                <div class="student-toolbar">
+                    <div><strong id="studentCount">0</strong> students saved</div>
+                    <div class="toolbar-actions"><input id="studentSearch"
+                            placeholder="Search name / register no..."><button class="outline-btn"
+                            id="exportStudentsBtn">Export CSV</button></div>
+                </div>
+                <form id="studentForm">
+                    <input type="hidden" id="studentEditId">
+                    <div class="form-grid student-form-grid">
+                        <div class="input-group"><label>Student Name *</label><input id="studentName" required></div>
+                        <div class="input-group"><label>Register Number *</label><input id="registerNo" required></div>
+                        <div class="input-group"><label>Student ID</label><input id="studentId"></div>
+                        <div class="input-group"><label>Department</label><input id="studentDepartment"
+                                value="Computer Science"></div>
+                        <div class="input-group"><label>Year</label><select id="studentYear">
+                                <option>1st Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>4th Year</option>
+                            </select></div>
+                        <div class="input-group"><label>Section</label><input id="studentSection" placeholder="A"></div>
+                        <div class="input-group"><label>Gender</label><select id="gender">
+                                <option>Prefer not to say</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select></div>
+                        <div class="input-group"><label>Phone Number</label><input id="studentPhone" type="tel"></div>
+                        <div class="input-group"><label>Email</label><input id="studentEmail" type="email"></div>
+                        <div class="input-group"><label>Parent / Guardian Name</label><input id="parentName"></div>
+                        <div class="input-group"><label>Parent / Guardian Phone</label><input id="parentPhone"
+                                type="tel"></div>
+                        <div class="input-group"><label>Blood Group</label><select id="bloodGroup">
+                                <option>Not specified</option>
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select></div>
+                        <div class="input-group"><label>Emergency Contact</label><input id="studentEmergency"
+                                type="tel"></div>
+                        <div class="input-group"><label>Attendance</label><select id="studentAttendance">
+                                <option>Present</option>
+                                <option>Absent</option>
+                                <option>Pending</option>
+                            </select></div>
+                    </div>
+                    <div class="form-actions"><button class="primary-btn" type="submit" id="studentSubmit">Add
+                            Student</button><button class="outline-btn" type="button" id="studentCancel">Clear
+                            Form</button></div>
+                </form>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Register No.</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>Phone</th>
+                                <th>Attendance</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="dashboard">
+            <div class="section-heading"><span class="section-label">MANAGE</span>
+                <h2>IV Dashboard</h2>
+                <p>Trip status, approval, attendance and saved project information.</p>
+            </div>
+            <div class="role-grid">
+                <div class="role-card">
+                    <div class="role-icon">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p>View trip, itinerary, student details and safety information.</p><button
+                        class="outline-btn role-login" data-role="Student">Student Login</button>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon">👨‍🏫</div>
+                    <h3>Faculty Portal</h3>
+                    <p>Manage students, attendance, transport and coordination.</p><button
+                        class="outline-btn role-login" data-role="Faculty">Faculty Login</button>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon">🛡️</div>
+                    <h3>Admin Dashboard</h3>
+                    <p>Review trip information and approve or hold the IV plan.</p><button
+                        class="outline-btn role-login" data-role="Admin">Admin Login</button>
+                </div>
+            </div>
+            <div class="dashboard-panel">
+                <div class="dashboard-top">
+                    <div><span class="section-label">CURRENT TRIP</span>
+                        <h3 id="dashboardTrip">No trip created</h3>
+                        <p id="currentUserText">Not logged in</p>
+                    </div><span class="status pending" id="dashboardStatus">Pending</span>
+                </div>
+                <div class="dashboard-metrics">
+                    <div><span>Students</span><strong id="dashboardStudents">0</strong></div>
+                    <div><span>Destination</span><strong id="dashboardDestination">-</strong></div>
+                    <div><span>Duration</span><strong id="dashboardDays">0 days</strong></div>
+                    <div><span>Budget</span><strong id="dashboardBudget">₹0</strong></div>
+                </div>
+                <div class="approval-actions"><button class="approve-btn" id="approveBtn">✓ Approve Trip</button><button
+                        class="hold-btn" id="holdBtn">⏸ Put On Hold</button></div>
+            </div>
+        </section>
+
+        <section class="section attendance-section">
+            <div class="section-heading"><span class="section-label">STUDENTS</span>
+                <h2>Attendance Board</h2>
+                <p>Attendance is automatically linked with saved student records.</p>
+            </div>
+            <div class="attendance-card">
+                <div class="attendance-header">
+                    <div>
+                        <h3>Student Attendance</h3>
+                        <p>Present: <strong id="presentCount">0</strong> / <strong id="totalCount">0</strong></p>
+                    </div>
+                    <div><button class="small-btn" id="markAllBtn">Mark All Present</button><button
+                            class="small-btn danger" id="clearAllBtn">Clear</button></div>
+                </div>
+                <div class="attendance-grid" id="attendanceGrid"></div>
+            </div>
+        </section>
+
+        <section class="section checklist-section">
+            <div class="section-heading"><span class="section-label">PREPARATION</span>
+                <h2>Pre-Departure Checklist</h2>
+                <p>Checklist status is saved automatically.</p>
+            </div>
+            <div class="checklist-card">
+                <label class="check-item"><input type="checkbox" class="checklist" data-key="permission"><span>College
+                        permission approved</span></label>
+                <label class="check-item"><input type="checkbox" class="checklist" data-key="transport"><span>Transport
+                        confirmed</span></label>
+                <label class="check-item"><input type="checkbox" class="checklist" data-key="hotel"><span>Accommodation
+                        confirmed</span></label>
+                <label class="check-item"><input type="checkbox" class="checklist" data-key="parents"><span>Parent /
+                        guardian consent collected</span></label>
+                <label class="check-item"><input type="checkbox" class="checklist" data-key="firstaid"><span>First-aid
+                        kit arranged</span></label>
+                <label class="check-item"><input type="checkbox" class="checklist"
+                        data-key="confirmation"><span>Industrial visit confirmation received</span></label>
+                <div class="progress-info"><span>Checklist Progress</span><strong id="checkProgressText">0%</strong>
+                </div>
+                <div class="progress-bar">
+                    <div id="checkProgress" class="progress-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="safety">
+            <div class="section-heading"><span class="section-label">SAFETY</span>
+                <h2>Emergency Information</h2>
+                <p>Keep important emergency contacts available during the IV.</p>
+            </div>
+            <div class="emergency-grid">
+                <div class="emergency-card"><span>🚨</span><strong>112</strong>
+                    <p>Emergency</p>
+                </div>
+                <div class="emergency-card"><span>🚑</span><strong>108</strong>
+                    <p>Ambulance</p>
+                </div>
+                <div class="emergency-card"><span>👮</span><strong>100</strong>
+                    <p>Police</p>
+                </div>
+                <div class="emergency-card"><span>🔥</span><strong>101</strong>
+                    <p>Fire</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div><a href="#home" class="logo"><span
+                        class="logo-icon">✈</span><span><b>CampusVoyage</b><small>INDIA</small></span></a>
+                <p>College IV Management System</p>
+            </div>
+            <div class="footer-links"><a href="#home">Home</a><a href="#find">Destinations</a><a
+                    href="#planner">Planner</a><a href="#students">Students</a><a href="#safety">Safety</a></div>
+        </div>
+        <div class="copyright">© 2026 CampusVoyage India. College Project.</div>
+    </footer>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-box">
+            <button class="close-modal" id="closeModal">×</button>
+            <div class="modal-icon">🔐</div>
+            <h2>CampusVoyage Login</h2>
+            <p>Choose a demo role. Your login role is remembered in this browser.</p>
+            <div class="role-options">
+                <button class="role-option" data-role="Student">🎓 <span><b>Student</b><small>Student
+                            Portal</small></span></button>
+                <button class="role-option" data-role="Faculty">👨‍🏫 <span><b>Faculty</b><small>Faculty
+                            Portal</small></span></button>
+                <button class="role-option" data-role="Admin">🛡️ <span><b>Admin</b><small>Admin
+                            Dashboard</small></span></button>
+            </div>
+            <p class="demo-note">Demo authentication only. Real authentication requires a backend and database.</p>
+        </div>
+    </div>
+
+    <div class="place-modal" id="placeModal">
+        <div class="place-modal-box"><button class="close-modal" id="closePlaceModal">×</button>
+            <div id="placeModalContent"></div>
+        </div>
+    </div>
+    <div class="toast" id="toast"><span id="toastMessage">Done</span></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
